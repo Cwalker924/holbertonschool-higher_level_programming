@@ -1,0 +1,12 @@
+"""
+This module holds only one function:
+text_indentation()
+"""
+
+def text_indentation(text):
+    delim = [".", "?", ":"]
+    typeError = ["text must be a string"]
+
+    for word in text:
+        for letter in word:
+            print(letter, end="")

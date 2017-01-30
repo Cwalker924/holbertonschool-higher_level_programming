@@ -1,0 +1,81 @@
+The ``1-mul.py`` module
+============================
+
+Using ``mul``
+---------------------
+
+This is an example text file in reStructuredText format.  First import
+``mul`` from the ``1-mul`` module:
+
+	>>> mul = __import__('1-mul').mul
+
+Now use it:
+
+    >>> mul(0, 1)
+    0
+
+    >>> mul(-2, -3)
+    6
+
+    >>> mul(1, -2)
+    -2
+
+    >>> mul(-1, 2)
+    -2
+
+    >>> mul(1.0, 2.0)
+    2.0
+
+    >>> mul([1], 2)
+    [1, 1]
+
+    >>> mul(0, 0)
+    0
+
+    >>> mul(0.0 , 0)
+    0.0
+
+    >>> mul(0, 0.0)
+    0.0
+
+    >>> mul(0.0, 0.0)
+    0.0
+
+    >>> mul("""Hi""", 3)
+    'HiHiHi'
+
+    >>> mul(float("inf"), float("inf"))
+    inf
+
+    >>> mul(1e10000, 1e10000)
+    inf
+
+    >>> mul(1, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
+    >>> mul("a", "a")
+    Traceback (most recent call last):
+    ...
+    TypeError: can't multiply sequence by non-int of type 'str'
+
+    >>> mul(1, {})
+    Traceback (most recent call last):
+    ...
+    TypeError: unsupported operand type(s) for *: 'int' and 'dict'
+
+    >>> mul(1, lambda x: x)
+    Traceback (most recent call last):
+    ...
+    TypeError: unsupported operand type(s) for *: 'int' and 'function'
+
+    >>> mul()
+    Traceback (most recent call last):
+    ...
+    TypeError: mul() missing 2 required positional arguments: 'a' and 'b'
+
+    >>> mul(1)
+    Traceback (most recent call last):
+    ...
+    TypeError: mul() missing 1 required positional argument: 'b'

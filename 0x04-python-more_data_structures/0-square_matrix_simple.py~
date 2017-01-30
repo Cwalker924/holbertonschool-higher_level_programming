@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+#def square(n):
+#    return(n ** 2)
+
+#def square_matrix_simple(matrix=[]):
+#    new_matrix = []
+#    for row in matrix:
+#        new_matrix.append(list(map(square, row)))
+#    return(new_matrix)
+
+def square(x):
+    return x ** 2
+
+
+def square_matrix_simple(matrix=[]):
+    new_list = []
+    for i in matrix:
+        new_list.append(list(map(square, i)))
+    return new_list

@@ -1,0 +1,92 @@
+The ``4-square`` module
+============================
+
+Using ``Square``
+---------------------
+
+This is an example text file in reStructuredText format.  First import
+``Square`` from the ``4-square`` module:
+	   >>> Square = __import__('4-square').Square
+
+Now use it:
+-----------
+
+>>> sq = Square()
+
+
+>>> sq = Square(5)
+>>> sq.size
+5
+
+>>> sq.area()
+25
+
+Error uses:
+-----------
+
+>>> sq = Square(5)
+>>> sq.size = "string"
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square(5)
+>>> sq.size = (0, 0)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square(5)
+>>> sq.size = {5, 5}
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square(5)
+>>> sq.size = {1 : 3}
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square(5)
+>>> sq.size = [5, 4, 3, 2, 1]
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square(5)
+>>> sq.size = 1.0
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square(5)
+>>> sq.size = -1
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+>>> sq = Square([5, 4, 3, 2, 1])
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square((1.0))
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square("string")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square({1, 1})
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> sq = Square({1 : 3})
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
