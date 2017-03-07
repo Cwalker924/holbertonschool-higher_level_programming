@@ -16,7 +16,7 @@ if __name__ == "__main__":
     add_state = State(name="Louisiana")
     session.add(add_state)
     session.commit()
-    
+
     query = session.query(State).order_by(State.id).filter(
         State.name == "Louisiana")
     trigger = 0
