@@ -14,10 +14,6 @@ if __name__ == "__main__":
     sesh = sessionmaker()
     session = sesh(bind=engine)
 
-    #add_state = State(name="New Mexico")
-    #session.add(add_state)
-    #session.commit()
-
     query = session.query(State).filter(State.id == 2)
 
     for line in query:
