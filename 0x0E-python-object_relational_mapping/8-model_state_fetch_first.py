@@ -12,12 +12,8 @@ if __name__ == "__main__":
     sesh = sessionmaker()
     session = sesh(bind=engine)
 
-    query = session.query(State)
-    trigger = 0
+    query = session.query(State).first()
     if query:
-        for data in query:
-            if trigger < 1:
-                print("{}: {}".format(data.id, data.name))
-                trigger += 1
+        print("{}: {}".format(query.id, query.name))
     else:
         print("Nothing")
