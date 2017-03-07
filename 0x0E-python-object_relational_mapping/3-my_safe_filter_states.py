@@ -6,14 +6,16 @@
 import sys
 import MySQLdb
 
-usa_db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-cursor = usa_db.cursor()
-cursor.execute("SELECT * From states ORDER BY id ASC;")
-states = cursor.fetchall()
+if __name__ == "__main__":
+    usa_db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                             db=sys.argv[3], host="localhost", port=3306)
+    cursor = usa_db.cursor()
+    cursor.execute("SELECT * From states ORDER BY id ASC;")
+    states = cursor.fetchall()
 
-for state in states:
-    if state[1] == sys.argv[4]:
-        print(state)
+    for state in states:
+        if state[1] == sys.argv[4]:
+                print(state)
 
-cursor.close()
-usa_db.close()
+    cursor.close()
+    usa_db.close()
