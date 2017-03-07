@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-# a script that adds the State object "Louisiana" to the database hbtn_0e_6_usa
+# a script that changes the name of a State object from the database
+# hbtn_0e_6_usa
 
 import sys
 from model_state import Base, State
@@ -13,12 +14,13 @@ if __name__ == "__main__":
     sesh = sessionmaker()
     session = sesh(bind=engine)
 
-    add_state = State(name="Louisiana")
-    session.add(add_state)
-    session.commit()
+    #add_state = State(name="New Mexico")
+    #session.add(add_state)
+    #session.commit()
 
-    query = session.query(State).order_by(State.id).filter(
-        State.name == "Louisiana")
+    query = session.query(State).filter(State.id == 2)
 
     for line in query:
-        print(line.id)
+        line.name = "New Mexico"
+        session.commit()
+        print("{}: {}".format(line.id, line.name))

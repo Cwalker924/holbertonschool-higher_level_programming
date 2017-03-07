@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-# a script that adds the State object "Louisiana" to the database hbtn_0e_6_usa
+# a script that changes the name of a State object from the database
+# hbtn_0e_6_usa
 
 import sys
 from model_state import Base, State
@@ -17,8 +18,6 @@ if __name__ == "__main__":
     session.add(add_state)
     session.commit()
 
-    query = session.query(State).order_by(State.id).filter(
-        State.name == "Louisiana")
-
+    query = session.query(State).order_by(State.id)
     for line in query:
         print(line.id)
