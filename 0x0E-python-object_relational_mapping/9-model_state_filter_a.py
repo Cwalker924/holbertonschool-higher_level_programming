@@ -13,6 +13,7 @@ if __name__ == "__main__":
     sesh = sessionmaker()
     session = sesh(bind=engine)
 
-    query = session.query(State).order_by(State.id).filter(State.name.contains("a"))
+    query = session.query(State).order_by(State.id).filter(
+        State.name.contains("a"))
     for line in query:
         print("{}: {}".format(line.id, line.name))
