@@ -15,6 +15,9 @@ if __name__ == "__main__":
     session = sesh(bind=engine)
 
     query = session.query(State).order_by(State.id)
-    for line in query:
-        if line.name == sys.argv[4]:
-            print("{}".format(line.id))
+    if query:
+        for line in query:
+            if line.name == sys.argv[4]:
+                print("{}".format(line.id))
+    else:
+        print("Not found")
