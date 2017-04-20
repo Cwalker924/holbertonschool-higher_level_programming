@@ -1,6 +1,7 @@
 #!/usr/bin/node
 
-if (process.argv.length <= 2 || process.argv[2] === '1') {
+if (process.argv.length <= 2 || process.argv[2] === '1' ||
+    process.argv[2] === '0') {
   console.log(0);
 } else {
   let myList = [];
