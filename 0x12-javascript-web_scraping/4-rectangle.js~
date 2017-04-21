@@ -1,0 +1,35 @@
+#!/usr/bin/node
+
+module.exports = {
+  Rectangle: function (w, h) {
+    if (w > 0 && h > 0) {
+      this.width = w;
+      this.height = h;
+    }
+
+    this.print = function () {
+      addX = '';
+      x = 0;
+      y = 0;
+      while (x < w) {
+	addX = addX.concat('X');
+	x++;
+      }
+      while (y < h) {
+	console.log(addX);
+	y++;
+      }
+    }
+
+    this.rotate = function () {
+      hold = w;
+      w = h;
+      h = hold;
+    }
+
+    this.double = function () {
+      w *= 2;
+      h *= 2;
+    }
+  }
+};
