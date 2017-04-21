@@ -1,55 +1,25 @@
 #!/usr/bin/node
 
-module.exports = {
-  Square: function (size) {
-    if (size > 0) {
-      this.size = size;
-    }
+const Square = require('./5-square.js').Square;
 
-    this.print = function () {
-      let addX = '';
+Square.prototype.charPrint = function (c) {
+  if (c === undefined) {
+    this.print();
+  } else {
+    let addC = '';
       let x = 0;
-      let y = 0;
-      while (x < size) {
-        addX = addX.concat('X');
-        x++;
-      }
-      while (y < size) {
-        console.log(addX);
-        y++;
-      }
-    };
-
-    this.double = function () {
-      size *= 2;
-    };
-
-    this.charPrint = function (c) {
-      if (c === undefined) {
-        let addX = '';
-        let x = 0;
-        let y = 0;
-        while (x < size) {
-          addX = addX.concat('X');
-          x++;
-        }
-        while (y < size) {
-          console.log(addX);
-          y++;
-        }
-      } else {
-        let addX = '';
-        let x = 0;
-        let y = 0;
-        while (x < size) {
-          addX = addX.concat('C');
-          x++;
-        }
-        while (y < size) {
-          console.log(addX);
-          y++;
-        }
-      }
-    };
+    while (x < this.size) {
+	addC = addC.concat(c);
+      x++;
+    }
+    let y = 0;
+    while (y < this.size) {
+      console.log(addC);
+      y++;
+    }
+      console.log(addC);
   }
 };
+
+module.exports = {Square};
+//module.Square = Square;
