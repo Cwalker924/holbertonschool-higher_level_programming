@@ -18,7 +18,6 @@ module.exports = {
         console.log(addX);
         y++;
       }
-      console.log(addX);
     };
   }
 };
